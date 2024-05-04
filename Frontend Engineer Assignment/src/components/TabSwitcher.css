@@ -1,0 +1,36 @@
+.TabSwitcher {
+  display: flex;
+  flex-direction: row;
+  top: 100px;
+  left: 20px;
+  z-index: 100;
+  padding: 5px;                /* Added padding inside the box */
+  border: 1px solid #007BFF;   /* Blue border around the entire box */
+  border-radius: 30px;         /* Rounded corners of the box */
+  margin-right: 930px;
+  margin-left: 20px;
+}
+
+.TabSwitcher button {
+  background-color: #02072F !important;
+  border-radius: 20px !important;
+  color: white;                
+  padding: 10px 20px;
+  margin-right: 10px;         
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Animation for background and text color changes */
+}
+
+.TabSwitcher button:last-child {
+  margin-right: 0;            
+}
+
+.TabSwitcher button:hover, .TabSwitcher button:focus {
+  background-color: #002D62 !important;   
+  color: white;                
+  outline: none;
+}
+.TabSwitcher button.active {
+  background-color: #002D62 !important;   
+  color: white;                           
+}

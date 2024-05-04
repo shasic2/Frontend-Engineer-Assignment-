@@ -1,0 +1,87 @@
+
+.contentDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: -10px -10px; /* negative margins for compensation */
+  padding: 20px;
+}
+
+.contentDisplay div {
+  flex: 1 1 200px; /* Flexibility of the element with a base width of 200px */
+  max-width: 200px; /* Maximum width of each element */
+  height: 400px;
+  margin-right: 20px; /* Uniform space on the right side */
+  margin-bottom: 20px; /* Uniform space at the bottom */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: #02072F;
+  border: 1.5px dashed #007bff;
+  border-radius: 20px; 
+}
+
+.contentDisplay div:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contentDisplay img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.contentDisplay h3 {
+  color: white;
+  background-color: #002D62;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Media queries for different screen sizes */
+@media (min-width: 600px) {
+  .contentDisplay div {
+    flex: 1 1 150px; /* Increasing the number of columns by reducing base width */
+    max-width: 150px;
+  }
+}
+
+@media (min-width: 900px) {
+  .contentDisplay div {
+    flex: 1 1 180px;
+    max-width: 180px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contentDisplay div {
+    flex: 1 1 200px;
+    max-width: 200px;
+  }
+}
+
+
+.no-results {
+  display: flex;
+  flex-direction: column; /* Elements are arranged vertically */
+  align-items: center; /* Center elements horizontally */
+  justify-content: center; /* Center elements vertically */
+  height: 100vh; /* Uses the height of the entire viewport */
+  color: white; /* White text color */
+  margin-top: 10px;
+ 
+  border-radius: 10px;
+  font-size: 1.5rem; /* Font size */
+  font-weight: bold; /* Font weight */
+}

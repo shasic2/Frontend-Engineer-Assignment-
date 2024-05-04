@@ -1,0 +1,26 @@
+
+.search-input {
+  width: 90%; /* Width reduced to 80% for a smaller size */
+  max-width: 1600px; /* Maximum width to look good on larger screens */
+  padding: 12px 20px;
+  font-size: 16px;
+  border: 2px solid #002D62; 
+  border-radius: 12px;
+  background-color: #002D62; 
+  color: #fff; 
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  display: block;
+  margin-left: 20px; /* Aligned to the far left side with a small gap from the edge */
+}
+
+.search-input:focus {
+  border-color: #89cff0; 
+  box-shadow: 0 4px 8px rgba(0, 76, 255, 0.3);
+  outline: none; /* Remove default focus outline */
+}
+
+.search-input::placeholder { 
+  color: #ccc;
+  opacity: 1; /* Ensures the placeholder is always visible */
+}
