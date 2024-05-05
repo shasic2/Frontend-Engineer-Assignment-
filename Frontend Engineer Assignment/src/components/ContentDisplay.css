@@ -7,12 +7,14 @@
   padding: 20px;
 }
 
+/* Postavljanje minimalne širine za sve elemente unutar .contentDisplay */
 .contentDisplay div {
-  flex: 1 1 200px; /* Flexibility of the element with a base width of 200px */
-  max-width: 200px; /* Maximum width of each element */
+  flex: 1 1 150px;
+  min-width: 150px; /* Minimalna širina za sve veličine ekrana */
+  max-width: 200px; /* Maksimalna širina varira zavisno od medija upita */
   height: 400px;
-  margin-right: 20px; /* Uniform space on the right side */
-  margin-bottom: 20px; /* Uniform space at the bottom */
+  margin-right: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
   position: relative;
@@ -21,8 +23,30 @@
   flex-direction: column;
   background-color: #02072F;
   border: 1.5px dashed #007bff;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
+
+@media (min-width: 600px) {
+  .contentDisplay div {
+    flex: 1 1 150px;
+    max-width: 150px;
+  }
+}
+
+@media (min-width: 900px) {
+  .contentDisplay div {
+    flex: 1 1 180px;
+    max-width: 180px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contentDisplay div {
+    flex: 1 1 200px;
+    max-width: 200px;
+  }
+}
+
 
 .contentDisplay div:hover {
   transform: scale(1.03);

@@ -1,4 +1,3 @@
-// src/SearchBox.tsx
 import React, { useState, useEffect } from 'react';
 import './SearchBox.css';
 
@@ -6,35 +5,36 @@ interface SearchBoxProps {
   onSearch: (query: string) => void;
 }
 
-const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }) => {
-  const [input, setInput] = useState('');
+const SearchBox: React.FC<SearchBoxProps> = ({ onSearch }): JSX.Element => {
+  // Pokušaj dohvatiti prethodni upit iz localStorage ili postavi prazan string
+  const [input, setInput] = useState<string>(localStorage.getItem('searchQuery') || '');
   const [timer, setTimer] = useState<number | null>(null);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const value = event.target.value;
-    setInput(value); // Update state with the raw input
+    setInput(value); // Ažuriranje stanja s trenutnim unosom
+    localStorage.setItem('searchQuery', value); // Spremanje trenutnog unosa u localStorage
 
-    // Clear the existing timer if there is one
+    // Očistite postojeći tajmer ako postoji
     if (timer !== null) {
       clearTimeout(timer);
     }
 
-    // Set a new timer to process the input after a delay
+    // Postavljanje novog tajmera za obradu unosa nakon kašnjenja
     const newTimer = setTimeout(() => {
       const processedValue = value.replace(/\s+/g, ' ').trim();
       if (processedValue) {
-        if (processedValue.length >= 3) { // Check to ensure the input is at least 3 characters
+        if (processedValue.length >= 3) { // Provjera je li unos najmanje 3 znaka
           onSearch(processedValue);
         }
       } else {
-        onSearch(''); // Reset the search query when input is empty
+        onSearch(''); // Resetiranje upita za pretraživanje kada je unos prazan
       }
-    }, 1000); // Set the delay for 1 second
-  
+    }, 1000) as unknown as number;
+
     setTimer(newTimer);
   };
 
-  // Effect for cleanup on component unmount
   useEffect(() => {
     return () => {
       if (timer !== null) {
